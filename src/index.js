@@ -3,7 +3,10 @@ import dotenv from "dotenv"                // To load environment variables from
 import connectDB from "./db/index.js"      // Importing database connection function
 
 import express from "express"              // Importing Express framework
+import UserRoutes from "../src/routes/user.routes.js"
+
 const app = express();                     // Creating an Express application instance
+app.use("/api/v1/users", UserRoutes);
 
 // Configure dotenv to load variables from the .env file
 dotenv.config({
@@ -25,7 +28,7 @@ connectDB()
     console.log(`MongoDB connection Failed: ${err} !!!`)
 );
 /* ; in front of function check previous statement is completetd
-(async ()=>{
+(async ()=>{ 
     try{
         mongoose.connect(`${process.env.MONGODB_URL}/${DB_NAME}`);
         app.on("error",() =>{

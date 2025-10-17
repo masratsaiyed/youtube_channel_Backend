@@ -24,8 +24,9 @@ const asyncHandler = (fn) => async(req,res,next) => {
 } **/
 //  ## Using Promises ##
 const asyncHandler = (requestHandler) => {
-  (req, res, next) => {
-    Promise.sucess(requestHandler(req, res, next)).catch(err > next(err));
+    console.log(requestHandler,'requestHandler')
+  return (req, res, next) => {
+    Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
   };
 };
 export { asyncHandler };
