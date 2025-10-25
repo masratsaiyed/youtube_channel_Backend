@@ -10,7 +10,7 @@ app.use("/api/v1/users", UserRoutes);
 
 // Configure dotenv to load variables from the .env file
 dotenv.config({
-    path: './env'                          // Path to your environment file (./env)
+    path: './.env'                          // Path to your environment file (./env)
 })
 
 // Connect to MongoDB database
